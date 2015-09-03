@@ -43,12 +43,15 @@ server {
                 #end of CORS headers
 
                 #PROXY for HTTP proxyto header
-                if ($http_proxyto ~* "https?:\/\/(.+)\/") {
+                if ( $http_proxyto ~* ^(?:https?):\/\/(?:[^@:\/]*@)?([^:\/]+) ) {
                         set $proxyhost $1;
                 }
+
+                add_header 'X-proxyhost' $proxyhost;
                 proxy_pass        $http_proxyto;
                 proxy_http_version 1.1;
                 proxy_redirect    off;
+                proxy_read_timeout 120;
                 proxy_set_header  Host                $proxyhost;
                 proxy_set_header  X-Forwarded-For     $remote_addr;
         }
