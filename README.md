@@ -38,7 +38,7 @@ server {
                 if ($request_method = 'OPTIONS') {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, OPTIONS';
                         add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
                         add_header 'Access-Control-Max-Age' 1728000;
                         add_header 'Content-Type' 'text/plain charset=UTF-8';
@@ -48,13 +48,19 @@ server {
                 if ($request_method = 'POST') {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, OPTIONS';
+                        add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
+                }
+                if ($request_method = 'PUT') {
+                        add_header 'Access-Control-Allow-Origin' '*';
+                        add_header 'Access-Control-Allow-Credentials' 'true';
+                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, OPTIONS';
                         add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
                 }
                 if ($request_method = 'GET') {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, OPTIONS';
                         add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
                 }
                 #end of CORS headers
@@ -96,7 +102,7 @@ server {
                 if ($request_method = 'OPTIONS') {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, OPTIONS';
                         add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
                         add_header 'Access-Control-Max-Age' 1728000;
                         add_header 'Content-Type' 'text/plain charset=UTF-8';
@@ -106,13 +112,19 @@ server {
                 if ($request_method = 'POST') {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, OPTIONS';
+                        add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
+                }
+                if ($request_method = 'PUT') {
+                        add_header 'Access-Control-Allow-Origin' '*';
+                        add_header 'Access-Control-Allow-Credentials' 'true';
+                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, OPTIONS';
                         add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
                 }
                 if ($request_method = 'GET') {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, OPTIONS';
                         add_header 'Access-Control-Allow-Headers' 'DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
                 }
                 #end of CORS headers
@@ -129,9 +141,6 @@ server {
                 proxy_read_timeout 120;
                 proxy_set_header  Host                $proxyhost;
                 proxy_set_header  X-Forwarded-For     $remote_addr;
-        }
-
-
         }
 }
 
