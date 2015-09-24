@@ -39,7 +39,7 @@ server {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
                         add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' '*';
+                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
                         add_header 'Access-Control-Max-Age' 1728000;
                         add_header 'Content-Type' 'text/plain charset=UTF-8';
                         add_header 'Content-Length' 0;
@@ -49,25 +49,25 @@ server {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
                         add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' '*';
+                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
                 }
                 if ($request_method = 'PUT') {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
                         add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' '*';
+                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
                 }
                 if ($request_method = 'DELETE') {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
                         add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' '*';
+                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
                 }
                 if ($request_method = 'GET') {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
                         add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' '*';
+                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
                 }
                 #end of CORS headers
 
@@ -109,7 +109,7 @@ server {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
                         add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' '*';
+                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
                         add_header 'Access-Control-Max-Age' 1728000;
                         add_header 'Content-Type' 'text/plain charset=UTF-8';
                         add_header 'Content-Length' 0;
@@ -119,25 +119,25 @@ server {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
                         add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' '*';
+                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
                 }
                 if ($request_method = 'PUT') {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
                         add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' '*';
+                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
                 }
                 if ($request_method = 'DELETE') {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
                         add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' '*';
+                         add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
                 }
                 if ($request_method = 'GET') {
                         add_header 'Access-Control-Allow-Origin' '*';
                         add_header 'Access-Control-Allow-Credentials' 'true';
                         add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' '*';
+                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
                 }
                 #end of CORS headers
 
