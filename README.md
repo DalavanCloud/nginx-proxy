@@ -1,6 +1,6 @@
 # Bash commands to install nginx
 ```
-aptitude install nginx-full
+aptitude install nginx-extras
 cd /etc/nginx/sites-available/
 vi readmeproxy
 cd ../sites-enabled/
@@ -36,39 +36,21 @@ server {
                 resolver 8.8.8.8;
                 #CORS headers
                 if ($request_method = 'OPTIONS') {
-                        add_header 'Access-Control-Allow-Origin' '*';
-                        add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
                         add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
                         add_header 'Access-Control-Max-Age' 1728000;
                         add_header 'Content-Type' 'text/plain charset=UTF-8';
                         add_header 'Content-Length' 0;
                         return 204;
                 }
-                if ($request_method = 'POST') {
-                        add_header 'Access-Control-Allow-Origin' '*';
-                        add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
-                }
-                if ($request_method = 'PUT') {
-                        add_header 'Access-Control-Allow-Origin' '*';
-                        add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
-                }
-                if ($request_method = 'DELETE') {
-                        add_header 'Access-Control-Allow-Origin' '*';
-                        add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
-                }
-                if ($request_method = 'GET') {
-                        add_header 'Access-Control-Allow-Origin' '*';
-                        add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
-                }
+		more_clear_headers 'Access-Control-Allow-Origin';
+		more_clear_headers 'Access-Control-Allow-Credentials';
+		more_clear_headers 'Access-Control-Allow-Methods';
+		more_clear_headers 'Access-Control-Allow-Headers';
+
+		more_set_headers 'Access-Control-Allow-Origin: *';
+		more_set_headers 'Access-Control-Allow-Credentials: true';
+		more_set_headers 'Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS';
+		more_set_headers 'Access-Control-Allow-Headers' $http_access_control_request_headers;
                 #end of CORS headers
 
                 #PROXY for HTTP proxyto header
@@ -106,39 +88,21 @@ server {
                 resolver 8.8.8.8;
                 #CORS headers
                 if ($request_method = 'OPTIONS') {
-                        add_header 'Access-Control-Allow-Origin' '*';
-                        add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
                         add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
                         add_header 'Access-Control-Max-Age' 1728000;
                         add_header 'Content-Type' 'text/plain charset=UTF-8';
                         add_header 'Content-Length' 0;
                         return 204;
                 }
-                if ($request_method = 'POST') {
-                        add_header 'Access-Control-Allow-Origin' '*';
-                        add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
-                }
-                if ($request_method = 'PUT') {
-                        add_header 'Access-Control-Allow-Origin' '*';
-                        add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
-                }
-                if ($request_method = 'DELETE') {
-                        add_header 'Access-Control-Allow-Origin' '*';
-                        add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                         add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
-                }
-                if ($request_method = 'GET') {
-                        add_header 'Access-Control-Allow-Origin' '*';
-                        add_header 'Access-Control-Allow-Credentials' 'true';
-                        add_header 'Access-Control-Allow-Methods' 'GET, POST, PUT, DELETE, OPTIONS';
-                        add_header 'Access-Control-Allow-Headers' $http_access_control_request_headers;
-                }
+		more_clear_headers 'Access-Control-Allow-Origin';
+		more_clear_headers 'Access-Control-Allow-Credentials';
+		more_clear_headers 'Access-Control-Allow-Methods';
+		more_clear_headers 'Access-Control-Allow-Headers';
+
+		more_set_headers 'Access-Control-Allow-Origin: *';
+		more_set_headers 'Access-Control-Allow-Credentials: true';
+		more_set_headers 'Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS';
+		more_set_headers 'Access-Control-Allow-Headers' $http_access_control_request_headers;
                 #end of CORS headers
 
                 #PROXY for HTTP proxyto header
@@ -155,7 +119,6 @@ server {
                 proxy_set_header  X-Forwarded-For     $remote_addr;
         }
 }
-
 ```
 
 # Verification
